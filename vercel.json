@@ -6,7 +6,7 @@
       "config": { "distDir": "dist/public" }
     },
     {
-      "src": "api/index.ts",
+      "src": "api/index.mjs",
       "use": "@vercel/node"
     }
   ],
