@@ -1,4 +1,5 @@
 {
+  "framework": null,
   "installCommand": "pnpm install",
   "buildCommand": "pnpm --filter @workspace/espaco-biblico run build",
   "outputDirectory": "artifacts/espaco-biblico/dist/public",
