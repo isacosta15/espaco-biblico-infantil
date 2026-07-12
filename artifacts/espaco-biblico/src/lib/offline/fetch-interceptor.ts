@@ -411,10 +411,22 @@ export function installOfflineFetch(): void {
     const { pathname, search } = parsed;
     const method = (init?.method ?? "GET").toUpperCase();
 
-    // Login sempre precisa de rede de verdade — nunca deve "funcionar" offline.
+    // Login sempre precisa de rede de verdade — nunca deve "funcionar" offline,
+    // mas TAMBÉM precisa tentar a rede normalmente quando há internet.
     const isLogin = pathname.endsWith("/auth/login");
 
-    const tryNetwork = !isLogin && navigator.onLine;
+    if (isLogin) {
+      if (!navigator.onLine) {
+        throw new Error("Sem conexão com a internet. Conecte-se para fazer login.");
+      }
+      try {
+        return await nativeFetch(input, init);
+      } catch {
+        throw new Error("Sem conexão com a internet. Conecte-se para fazer login.");
+      }
+    }
+
+    const tryNetwork = navigator.onLine;
 
     if (tryNetwork) {
       try {
@@ -428,11 +440,8 @@ export function installOfflineFetch(): void {
         }
         return response;
       } catch {
-        if (isLogin) throw new Error("Sem conexão com a internet. Conecte-se para fazer login.");
         // cai para o tratamento offline abaixo
       }
-    } else if (isLogin) {
-      throw new Error("Sem conexão com a internet. Conecte-se para fazer login.");
     }
 
     if (method === "GET") {
