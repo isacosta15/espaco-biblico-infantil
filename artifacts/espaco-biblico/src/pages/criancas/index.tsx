@@ -70,7 +70,7 @@ export default function CriancasPage() {
 
           <Select value={congregationId} onValueChange={setCongregationId}>
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Congregação" />
+              <SelectValue placeholder="Comum Congregação" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Todas</SelectItem>

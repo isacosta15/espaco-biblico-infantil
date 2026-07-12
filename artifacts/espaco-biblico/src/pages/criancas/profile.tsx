@@ -189,7 +189,7 @@ export default function ChildProfilePage() {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-muted-foreground mt-0.5" />
                     <div>
-                      <p className="text-sm font-medium text-muted-foreground">Congregação</p>
+                      <p className="text-sm font-medium text-muted-foreground">Comum Congregação</p>
                       <p className="text-base text-foreground font-medium">{child.congregationName || "Não informada"}</p>
                     </div>
                   </div>

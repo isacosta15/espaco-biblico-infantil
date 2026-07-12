@@ -21,7 +21,7 @@ const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/presenca", label: "Presença", icon: CheckSquare },
   { href: "/criancas", label: "Crianças", icon: Users },
-  { href: "/congregacoes", label: "Congregações", icon: Building2 },
+  { href: "/congregacoes", label: "Comum Congregações", icon: Building2 },
   { href: "/historico", label: "Histórico", icon: History },
   { href: "/relatorios", label: "Relatórios", icon: BarChart3 },
 ];

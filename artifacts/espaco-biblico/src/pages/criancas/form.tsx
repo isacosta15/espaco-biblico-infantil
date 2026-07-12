@@ -251,14 +251,14 @@ export default function ChildFormPage() {
                   name="congregationId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Congregação</FormLabel>
+                      <FormLabel>Comum Congregação</FormLabel>
                       <Select 
                         onValueChange={(val) => field.onChange(val ? Number(val) : null)} 
                         value={field.value ? String(field.value) : ""}
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Selecione a congregação (opcional)" />
+                            <SelectValue placeholder="Selecione a comum congregação (opcional)" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>

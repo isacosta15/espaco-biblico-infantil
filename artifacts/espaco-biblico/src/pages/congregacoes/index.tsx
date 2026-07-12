@@ -116,7 +116,7 @@ export default function CongregacoesPage() {
         { id: editingCongregation.id, data },
         {
           onSuccess: () => {
-            toast({ title: "Congregação atualizada" });
+            toast({ title: "Comum Congregação atualizada" });
             setIsOpen(false);
             queryClient.invalidateQueries({ queryKey: getListCongregationsQueryKey() });
           },
@@ -128,7 +128,7 @@ export default function CongregacoesPage() {
         { data: data as any },
         {
           onSuccess: () => {
-            toast({ title: "Congregação criada" });
+            toast({ title: "Comum Congregação criada" });
             setIsOpen(false);
             queryClient.invalidateQueries({ queryKey: getListCongregationsQueryKey() });
           },
@@ -144,7 +144,7 @@ export default function CongregacoesPage() {
       { id: deleteId },
       {
         onSuccess: () => {
-          toast({ title: "Congregação excluída" });
+          toast({ title: "Comum Congregação excluída" });
           setDeleteId(null);
           queryClient.invalidateQueries({ queryKey: getListCongregationsQueryKey() });
         },
@@ -162,7 +162,7 @@ export default function CongregacoesPage() {
         </div>
         <Button onClick={() => handleOpenForm()} className="h-11 px-6 rounded-xl shadow-sm">
           <Plus className="w-5 h-5 mr-2" />
-          Nova Congregação
+          Nova Comum Congregação
         </Button>
       </div>
 
@@ -218,7 +218,7 @@ export default function CongregacoesPage() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>{editingCongregation ? "Editar Congregação" : "Nova Congregação"}</DialogTitle>
+            <DialogTitle>{editingCongregation ? "Editar Comum Congregação" : "Nova comum Congregação"}</DialogTitle>
           </DialogHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-4">
@@ -227,9 +227,9 @@ export default function CongregacoesPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nome da Congregação</FormLabel>
+                    <FormLabel>Nome da Comum Congregação</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ex: Sede, Congregação Bairro X..." {...field} />
+                      <Input placeholder="Ex: Central, Comum Congregação Bairro X..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -320,7 +320,7 @@ export default function CongregacoesPage() {
       <AlertDialog open={!!deleteId} onOpenChange={(open) => !open && setDeleteId(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Excluir Congregação?</AlertDialogTitle>
+            <AlertDialogTitle>Excluir Comum Congregação?</AlertDialogTitle>
             <AlertDialogDescription>
               Esta ação não pode ser desfeita.
             </AlertDialogDescription>
