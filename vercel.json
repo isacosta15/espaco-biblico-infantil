@@ -1,18 +1,15 @@
 {
-  "builds": [
-    {
-      "src": "artifacts/espaco-biblico/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist/public" }
-    },
-    {
-      "src": "api/index.mjs",
-      "use": "@vercel/node"
+  "framework": null,
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @workspace/espaco-biblico run build",
+  "outputDirectory": "artifacts/espaco-biblico/dist/public",
+  "functions": {
+    "api/index.mjs": {
+      "maxDuration": 30
     }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/index" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
